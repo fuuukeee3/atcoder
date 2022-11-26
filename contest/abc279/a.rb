@@ -1,15 +1,1 @@
-# n = gets.chomp.to_i
-# arr = gets.chomp.split(" ").map(&:to_i)
-
-s = gets.chomp
-
-count = 0
-s.split("").each do |ss|
-  if ss == "v"
-    count += 1
-  elsif ss == "w"
-    count += 2
-  end
-end
-
-puts count
+puts gets.chomp.split("").reduce(0) { |sum, ss| sum += ss == "v" ? 1 : 2 }
