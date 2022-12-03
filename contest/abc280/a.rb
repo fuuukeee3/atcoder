@@ -4,11 +4,5 @@
 h, w = gets.chomp.split(" ").map(&:to_i)
 
 count = 0
-h.times do |hh|
-  a = gets.chomp.split("")
-  a.each do |aa|
-    count += 1 if aa == "#"
-  end
-end
-
+h.times { count += gets.chomp.count("#") }
 puts count
