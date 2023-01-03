@@ -8,3 +8,13 @@ def arr_all_combination(arr)
   end
   new_arr
 end
+
+# 2次元配列全探索
+# i = 0
+# while i < n
+#   j = 0
+#   while j < nn
+#     j += 1
+#   end
+#   i += 1
+# end
