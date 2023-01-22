@@ -1,31 +1,29 @@
 n, a, b = gets.chomp.split(" ").map(&:to_i)
 s = gets.chomp.split("")
 
-sorted_array = []
-tmp = []
+center = n / 2
+
+scores = []
 n.times do
-  sorted_array << s
+  before = s[0...center]
+  after = s[(center + 1)..-1]
 
   i = 0
   j = -1
   count = 0
-  (n / 2).times do
-    count += 1 if s[i] != s[j]
+  before.size.times do
+    count += 1 if before[i] != after[j]
     i += 1
     j -= 1
   end
-  tmp << count
+  scores << count
+
   s = s[1..-1] + [s[0]]
 end
 
-# p sorted_array
-# p tmp
-
-# min = tmp.min
-# p1 = n / 2 * b
 results = []
-tmp.each_with_index do |tt, index|
-  results << index * a + tt * b
+scores.each_with_index do |score, index|
+  results << index * a + score * b
 end
-# p results
+
 puts results.min
