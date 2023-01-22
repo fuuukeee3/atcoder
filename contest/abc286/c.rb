@@ -1,18 +1,13 @@
 n, a, b = gets.chomp.split(" ").map(&:to_i)
 s = gets.chomp.split("")
 
-center = n / 2
-
 scores = []
 n.times do
-  before = s[0...center]
-  after = s[(center + 1)..-1]
-
   i = 0
   j = -1
   count = 0
-  before.size.times do
-    count += 1 if before[i] != after[j]
+  (n / 2).times do
+    count += 1 if s[i] != s[j]
     i += 1
     j -= 1
   end
