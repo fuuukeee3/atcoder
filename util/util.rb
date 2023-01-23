@@ -33,3 +33,15 @@ end
 # 0:下 1:右 2:上 3:左
 # dh = [1, 0, -1, 0,]
 # dw = [0, 1, 0, -1]
+
+# 区間分割/連長圧縮
+# s = "AAABBBBBAACCDDA"
+# i = 0
+# while i < s.size
+#   j = i
+#   while j < s.size && s[i] == s[j]
+#     j += 1
+#   end
+#   p [s[i], j - i]
+#   i = j
+# end
