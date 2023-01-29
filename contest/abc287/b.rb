@@ -10,13 +10,4 @@ m.times do
   t_array << gets.chomp
 end
 
-# p s_array
-# p t_array
-
-count = 0
-
-s_array.each do |s|
-  count += 1 if t_array.include?(s[-3..-1])
-end
-
-puts count
+puts s_array.count { |s| t_array.include?(s[-3..-1]) }

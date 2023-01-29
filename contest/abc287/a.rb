@@ -1,18 +1,8 @@
 n = gets.chomp.to_i
-
-f = 0
-a = 0
+arr = []
 n.times do
-  s = gets.chomp
-  if s == "For"
-    f += 1
-  else
-    a += 1
-  end
+  arr << gets.chomp
 end
 
-if f > a
-  puts "Yes"
-else
-  puts "No"
-end
+san, han = arr.partition { |a| a == "For" }
+puts (san.size > han.size) ? "Yes" : "No"
