@@ -46,11 +46,22 @@ end
 #   i = j
 # end
 
-# 無効グラフ
+# 無向グラフ
 # n, m = gets.chomp.split(" ").map(&:to_i)
 # graph = Array.new(n + 1) { [] }
 # m.times do
 #   a, b = gets.chomp.split(" ").map(&:to_i)
 #   graph[a] << b
 #   graph[b] << a
+# end
+
+# bit全探索
+# 選択する/しないの2パタンに分類できる時
+# サイズ n の重複順列をすべて生成
+# [0, 1].repeated_permutation(n).to_a.each do |bit|
+#   bit.each_with_index do |b, index|
+#     # 選択された場合の処理
+#     if b == 1
+#     end
+#   end
 # end
