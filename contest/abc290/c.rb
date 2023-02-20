@@ -3,10 +3,12 @@ require 'set'
 n, k = gets.chomp.split(" ").map(&:to_i)
 arr = gets.chomp.split(" ").map(&:to_i)
 
-results = (0..k).to_a
-arr.each do |a|
-  next if a >= k
-  results.delete(a)
+arr = arr.to_set
+(0..k).each do |i|
+  unless arr.include?(i)
+    puts i
+    exit
+  end
 end
 
-puts results.max
+puts k
