@@ -1,0 +1,1 @@
+puts gets.chomp.split("x").map(&:to_i).reduce(1, &:*)
