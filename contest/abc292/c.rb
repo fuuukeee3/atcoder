@@ -1,11 +1,8 @@
-def temp(n)
-  count = 0
-  (1..n).each do |i|
-    if n % i == 0
-      count += 1
-    end
-  end
-  count
+require 'prime'
+
+def number_divisors(n)
+  return 1 if n == 1
+  Prime.prime_division(n).map {|p, e| e + 1 }.inject(:*)
 end
 
 n = gets.chomp.to_i
@@ -17,10 +14,10 @@ count = 0
   right = n - i
 
   if arr[left] == 0
-    arr[left] = temp(left)
+    arr[left] = number_divisors(left)
   end
   if arr[right] == 0
-    arr[right] = temp(right)
+    arr[right] = number_divisors(right)
   end
   count += arr[left] * arr[right]
 end

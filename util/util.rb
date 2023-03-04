@@ -68,3 +68,10 @@ end
 #     end
 #   end
 # end
+
+# 約数の個数を返す
+# https://qiita.com/norioc/items/5c270ad6ff5d22d1efd0
+def number_divisors(n)
+  return 1 if n == 1
+  Prime.prime_division(n).map {|p, e| e + 1 }.inject(:*)
+end
