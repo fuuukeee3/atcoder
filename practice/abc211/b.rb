@@ -1,11 +1,7 @@
-s = []
-s << gets.chomp
-s << gets.chomp
-s << gets.chomp
-s << gets.chomp
-
-if s.uniq.size == 4
-  puts "Yes"
-else
-  puts "No"
+require 'set'
+set = Set.new
+4.times do
+  set << gets.chomp
 end
+
+puts set.size == 4 ? "Yes" : "No"
