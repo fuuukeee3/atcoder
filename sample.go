@@ -11,19 +11,16 @@ func main() {
 	out := bufio.NewWriter(os.Stdout)
 	defer out.Flush()
 
-	var n, m int
-	fmt.Fscan(in, &n, &m)
+	var n int
+	fmt.Fscan(in, &n)
 
-	graph := make([][]int, n)
-	for i := 0; i < m; i++ {
-		var a, b int
-		fmt.Fscan(in, &a, &b)
+	cumulativeSum := []int{0}
+	for i := 0; i < n; i++ {
+		var nn int
+		fmt.Fscan(in, &nn)
 
-		a -= 1
-		b -= 1
-		graph[a] = append(graph[a], b)
-		graph[b] = append(graph[b], a)
+		cumulativeSum = append(cumulativeSum, nn+cumulativeSum[i])
 	}
 
-	fmt.Fprintln(out, graph)
+	fmt.Fprintln(out, cumulativeSum)
 }

@@ -1,11 +1,8 @@
-n, m = gets.chomp.split(" ").map(&:to_i)
-graph = Array.new(n) { [] }
-m.times do
-  a, b = gets.chomp.split(" ").map(&:to_i)
-  a -= 1
-  b -= 1
-  graph[a] << b
-  graph[b] << a
+arr = gets.chomp.split(" ").map(&:to_i)
+cumulative_sum = [0]
+
+arr.each_with_index do |a, index|
+  cumulative_sum << a + cumulative_sum[index]
 end
 
-p graph
+p cumulative_sum
