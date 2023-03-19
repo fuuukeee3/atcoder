@@ -1,4 +1,4 @@
-alpha = %W[. A B C D E F G H I J K L M N O P Q R S T U V W X Y Z]
+alpha = ['.'] + ('A'..'Z').to_a
 h, w = gets.chomp.split(" ").map(&:to_i)
 h.times do
   arr = gets.chomp.split(" ").map(&:to_i)
