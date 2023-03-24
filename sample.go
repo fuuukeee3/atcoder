@@ -14,13 +14,13 @@ func main() {
 	var n int
 	fmt.Fscan(in, &n)
 
-	cumulativeSum := []int{0}
-	for i := 0; i < n; i++ {
-		var nn int
-		fmt.Fscan(in, &nn)
+	fmt.Fprintln(out, rec(n))
+}
 
-		cumulativeSum = append(cumulativeSum, nn+cumulativeSum[i])
+func rec(n int) int {
+	if n == 1 {
+		return 1
 	}
 
-	fmt.Fprintln(out, cumulativeSum)
+	return n + rec(n-1)
 }
