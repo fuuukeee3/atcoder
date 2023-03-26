@@ -1,8 +1,12 @@
-def rec(n)
-  return 1 if n == 1
-
-  n + rec(n-1)
-end
-
 n = gets.chomp.to_i
-puts rec(n)
+
+[0, 1].repeated_permutation(n).to_a.each do |bit|
+  arr = []
+  bit.each_with_index do |b, index|
+    arr << b
+    # 選択された場合の処理
+    if b == 1
+    end
+  end
+  p arr
+end
