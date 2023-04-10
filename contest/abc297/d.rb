@@ -1,17 +1,17 @@
 a, b = gets.chomp.split(" ").map(&:to_i)
-
-if a < b
-  a, b = b ,a
-end
-
 count = 0
 loop do
-  break if b == 0
+  break if a == b || a == 0 || b == 0
 
-  count += a / b
-  div, mod = a.divmod(b)
-  a = mod
-  a, b = b, a
+  if a > b
+    div, mod = a.divmod(b)
+    a = a - b * div
+    count += div
+  else
+    div, mod = b.divmod(a)
+    b = b - a * div
+    count += div
+  end
 end
 
-puts count - 1
+puts [count - 1, 0].max
