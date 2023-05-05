@@ -75,3 +75,16 @@ def number_divisors(n)
   return 1 if n == 1
   Prime.prime_division(n).map {|p, e| e + 1 }.inject(:*)
 end
+
+# 2次元Gridの回転、4回で1周する
+4.times do
+  new_a = []
+  (0...n).each do |i|
+    arr = []
+    (0...n).each do |j|
+      arr << a[n - j - 1][i]
+    end
+    new_a << arr
+  end
+  a = new_a # 回転済みのGridを回転するので元Gridを上書き
+end
