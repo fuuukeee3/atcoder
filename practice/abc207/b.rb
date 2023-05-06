@@ -1,19 +1,20 @@
 a, b, c, d = gets.chomp.split(" ").map(&:to_i)
 
-if b > c
+red = a
+blue = 0
+if b >= c * d
   puts -1
   exit
 end
 
 count = 0
-aa = a.dup
-cc = 0
 loop do
-  break if aa <= cc * d
+  if red <= blue * d
+    puts count
+    exit
+  end
 
-  aa += b
-  cc += c
+  red += b
+  blue += c
   count += 1
 end
-
-puts count

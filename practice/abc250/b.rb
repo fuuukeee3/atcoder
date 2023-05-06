@@ -1,23 +1,29 @@
 n, a, b = gets.chomp.split(" ").map(&:to_i)
-arr = []
-white = true
-(a * n).times do |i|
-  if i % a == 0
-    white = !white
-  end
-  line = ''
-  (b * n).times do |j|
-    if j % b == 0
-      white = !white
-    end
 
-    if white
-      line += '.'
-    else
-      line += '#'
-    end
-  end
-  arr << line
+white = "." * b
+black = "#" * b
+
+wrow = ""
+flg = true
+n.times do
+  node = flg ? white : black
+  wrow += node
+  flg = !flg
 end
 
-puts arr.join("\n")
+
+brow = ""
+flg = false
+n.times do
+  node = flg ? white : black
+  brow += node
+  flg = !flg
+end
+
+flg = true
+n.times do
+  a.times do
+    puts flg ? wrow : brow
+  end
+  flg = !flg
+end
