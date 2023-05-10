@@ -1,9 +1,25 @@
 n, t = gets.chomp.split(" ").map(&:to_i)
-sum = 0
-open_door= 0
-close_door = 0
+arr = []
 n.times do
-  a = gets.chomp.to_i
-  open_door = a
-  close_door = a + t
+  arr << gets.chomp.to_i
 end
+
+s = 0
+e = 0
+hash = {}
+arr.each do |a|
+  if a >= s && a <= e
+    e = a + t
+  else
+    s = a
+    e = s + t
+  end
+  hash[s] = e
+end
+
+sum = 0
+hash.each do |k, v|
+  sum += v - k
+end
+
+puts sum
