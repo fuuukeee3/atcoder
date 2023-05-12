@@ -13,7 +13,7 @@ tri = {}
     next
   end
 
-  tri[i] = tri[i - 1] + tri[i - 2] + tri[i - 3]
+  tri[i] = (tri[i - 1] + tri[i - 2] + tri[i - 3]) % 10007
 end
 
 puts tri[n] % 10007
