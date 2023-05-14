@@ -58,11 +58,11 @@ end
 
 plus = 0
 sa_hash.each do |k, v|
-  plus += 1 if v > 0
+  plus += v if v > 0
 end
 minus = 0
 sa_hash.each do |k, v|
-  minus += 1 if v < 0
+  minus += v if v < 0
 end
 # p [plus, t_hash["@"]]
 # p [minus, s_hash["@"]]
