@@ -1,8 +1,6 @@
 n, m = gets.chomp.split(" ").map(&:to_i)
-short_move = 360.0 / 60
-long_move = 360.0 / 12 / 60
+n %= 12
+a = (n * 30.0) + (m / 2.0)
+b = 6.0 * m
 
-short_position = short_move * (n-12)
-long_position =
-p [short_move, short_position]
-p [long_move]
+puts [(a-b).abs, 360 - (a-b).abs].min
