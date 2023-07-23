@@ -1,21 +1,27 @@
+def dfs(graph, visited, position)
+  # 訪れた箇所はtrue
+  visited[position]+=1
+  if visited[position] == 2
+    $results << position
+  end
+
+  # 隣接する頂点をDFS
+  graph[position].each do |nex|
+    dfs(graph, visited, nex) if visited[nex] < 2
+  end
+end
+
 n = gets.chomp.to_i
 arr = gets.chomp.split(" ").map(&:to_i)
-arr.unshift(0)
-now = 1
 
-n.times do
-  now = arr[now]
+g = Array.new(n + 1)
+arr.each_with_index do |a, index|
+  (g[index + 1] ||= []) << a
 end
 
-r = [now]
-loop do
-  if r[0] == arr[now]
-    break
-  end
-  now = arr[now]
-  r << now
-end
+visited = Array.new(n + 1) { 0 }
+$results = []
+dfs(g, visited, 1)
 
-puts r.size
-puts r.join(" ")
-
+puts $results.size
+puts $results.join(" ")
