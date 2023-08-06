@@ -1,24 +1,14 @@
 n = gets.chomp.to_i
 a = gets.chomp.split(" ").map(&:to_i)
 
-sum = a.sum
-target, mod = sum.divmod(n)
-p mod
-if mod <= 1
-  arr = a.select { |aa| aa < target }
-  count = 0
-  arr.each do |aa|
-    count += target - aa
-  end
+a.sort!
+div, mod = a.sum.divmod(n)
 
-  puts count
-else
-  target += 1
-  arr = a.select { |aa| aa > target }
-  count = 0
-  arr.each do |aa|
-    count += aa - target
-  end
+convert = Array.new(n-mod) {div} + Array.new(mod) {div+1}
 
-  puts count
+total = 0
+(0...n).each do |i|
+  total += (a[i] - convert[i]).abs
 end
+
+puts total / 2
