@@ -1,3 +1,22 @@
+def substr(s, t)
+  count = 0
+  tindex = 0
+  (0...(s.size)).each do |i|
+    loop do
+      break if tindex >= t.size
+
+      if s[i] == t[tindex]
+        count += 1
+        tindex += 1
+        break
+      else
+        tindex += 1
+      end
+    end
+  end
+  count == s.size
+end
+
 def solve(t, t2)
   tsize = t.size
   t2size = t2.size
@@ -6,21 +25,13 @@ def solve(t, t2)
   return true if t == t2
 
   # 1文字挿入
-  if tsize + 1 == t2size
-    regstr = t.split("").map {|tt| ".?#{tt}"}.join("")
-    reg = Regexp.new(["^", regstr, ".?$"].join(""))
-    if t2.match?(reg)
-      return true
-    end
+  if tsize + 1 == t2size && substr(t, t2)
+    return true
   end
 
   # # 1文字削除
-  if tsize - 1 == t2size
-    regstr = t.split("").map {|tt| "#{tt}?"}.join("")
-    reg = Regexp.new(["^", regstr, "$"].join(""))
-    if t2.match?(reg)
-      return true
-    end
+  if tsize - 1 == t2size && substr(t2, t)
+    return true
   end
 
   # # 1文字変更
